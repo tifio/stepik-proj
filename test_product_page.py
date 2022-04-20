@@ -11,14 +11,7 @@ def test_guest_open(browser):
     pageProduct.should_be_button_add()
     pageProduct.solve_quiz_and_get_code()
 
-    # browser.get(link)
-
     time.sleep(40)
-    # pageProduct = ProductPage(browser, link)
-    # pageProduct.add_button()
 
-
-    # page2 = ProductPage(browser, link)
-    # page2.add_button()
 
 
