@@ -1,11 +1,13 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
-from pages.locators import MainPageLocators
+from pages.locators import ProductPageLocators
 
 class ProductPage(BasePage):
     def should_be_button_add(self):
-        link = self.browser.find_element(*MainPageLocators.BUTTON_LINK)
+        link = self.browser.find_element(*ProductPageLocators.BUTTON_LINK)
         link.click()
+
+
 
     def should_be_name_book(self):
         actual_name = self.browser.find_element_by_css_selector("#messages>.alert>.alertinner>strong")
@@ -22,8 +24,10 @@ class ProductPage(BasePage):
         print(expected_price.text)
         assert expected_price.text == actual_price.text, "Wrong price"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
 
-
-    # def should_be_button_add(self):
-    #     link = self.browser.find_element(*MainPageLocators.BUTTON_LINK)
-    #     link.click()
+    def should_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is not disappeared"
