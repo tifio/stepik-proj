@@ -70,7 +70,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     basket_page = BasketPage(browser, browser.current_url)
     basket_page.should_not_be_item_product()
     basket_page.should_be_empty_basket()
-    time.sleep(200)
+    time.sleep(2)
 
 
 ########################## -----первая реализация тестов на память----- ##########################
